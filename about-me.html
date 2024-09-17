@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mí</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            margin: 0;
+            background-color: #faf4ff;
+            font-family: 'Roboto', sans-serif;
+            cursor: url('cursor.cur'), auto;
+        }
+        .content {
+            flex: 1;
+            padding: 40px;
+            margin-left: 250px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        a:hover {
+            cursor: url('cursor-mano.cur'), auto;
+        }
+        h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #c97b84;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h2::before,
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: #c97b84;
+            top: 50%;
+        }
+        h2::before {
+            left: -100px;
+        }
+        h2::after {
+            right: -100px;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #f4c2c2;
+        }
+        .navbar{
+            display: none;
+            width: 100%;
+            height: 50px;
+            background-color: #f4c2c2;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+        .menu-btn {
+            display: none;
+            background-color: #f4c2c2;
+            border: none;
+            color: white;
+            font-size: 24px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1001;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                display: block;
+            }
+            .menu-btn {
+                display: block;
+            }
+            .sidebar {
+                width: 200px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                z-index: 1000;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .sidebar img{
+                margin-top: 50px;
+            }
+            .content {
+                margin-left: 0;
+                margin-top: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar"></div>
+    <button class="menu-btn" id="menuToggle">&#9776;</button>
+
+    <div class="sidebar" id="sidebar">
+        <img src="ale.jpg" alt="Imagen Local">
+        <a href="index.html">Alejandra</a>
+        <a href="about-me.html">Sobre mí</a>
+        <a href="portfolio.html">Portafolio</a>
+        <a href="education.html">Educación</a>
+        <a href="experience.html">Experiencia</a>
+        <a href="skills.html">Habilidades</a>
+        <a href="contact.html">Contacto</a>
+    </div>
+
+    <div class="content">
+        <section class="mb-5 floral-decor">
+            <h2>Sobre Mí</h2>
+            <p>I was working for a year in the frontend development area 
+                at UNIDA university, in December 2022 I was hired by
+                One SA to work as an IT solutions analyst at the central bank of Paraguay, until the end of my contract in August 2024. I am currently developing several projects, the most important project will end in 2025</p>
+        </section>
+
+        <section class="mb-5 floral-decor">
+            <h2>Mis Pasatiempos</h2>
+            <p>En mi tiempo libre, me gusta relajarme y adquirir nuevas habilidades, por eso disfruto viendo series y videos ya que es una excelente manera de relajarme y pasar un buen rato, también soy una entusiasta de los videojuegos porque me permiten disfrutar experiencias interactivas.
+                Sin embargo, una de mis grandes pasiones es la programación, actualmente me encuentro ocupada trabajando en un sistema real de forma autónoma, lo que me ha llevado a centrarme solo en este proyecto, pero aun así estoy participando en la creación de sistemas para varias materias de mis últimos semestres, lo que me permite aplicar mis conocimientos en un entorno académico y desafiante.
+                Cada una de estas actividades me ayuda a crecer tanto personal como profesionalmente, y me encantaría tener la oportunidad de volver a aplicar mis conocimientos y aprendizajes en un entorno laboral.</p>
+        </section>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const menuBtn = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            if (menuBtn && sidebar) {
+                menuBtn.addEventListener('click', function() {
+                    sidebar.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

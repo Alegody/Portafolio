@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            margin: 0;
+            background-color: #faf4ff;
+            font-family: 'Roboto', sans-serif;
+            cursor: url('cursor.cur'), auto;
+        }
+        .content {
+            flex: 1;
+            padding: 40px;
+            margin-left: 250px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        a:hover {
+            cursor: url('cursor-mano.cur'), auto;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #c97b84;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h1::before, h1::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: #c97b84;
+            top: 50%;
+        }
+        h1::before {
+            left: -100px;
+        }
+        h1::after {
+            right: -100px;
+        }
+        .experience-card {
+            background-color: #fff;
+            border-left: 5px solid #f4c2c2;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .experience-card h3 {
+            font-size: 1.5rem;
+            color: #c97b84;
+        }
+        .experience-card p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        .experience-card .dates {
+            display: inline-block;
+            background-color: #c97b84;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .navbar{
+            display: none;
+            width: 100%;
+            height: 50px;
+            background-color: #f4c2c2;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+        .menu-btn {
+            display: none;
+            background-color: #f4c2c2;
+            border: none;
+            color: white;
+            font-size: 24px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1001;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                display: block;
+            }
+            .menu-btn {
+                display: block;
+            }
+            .sidebar {
+                width: 200px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                z-index: 1000;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .sidebar img{
+                margin-top: 50px;
+            }
+            .content {
+                margin-left: 0;
+                margin-top: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar"></div>
+    <button class="menu-btn" id="menuToggle">&#9776;</button>
+
+    <div class="sidebar" id="sidebar">
+        <img src="ale.jpg" alt="Imagen Local">
+        <a href="index.html">Alejandra</a>
+        <a href="about-me.html">Sobre mí</a>
+        <a href="portfolio.html">Portafolio</a>
+        <a href="education.html">Educación</a>
+        <a href="experience.html">Experiencia</a>
+        <a href="skills.html">Habilidades</a>
+        <a href="contact.html">Contacto</a>
+    </div>
+    <div class="content">
+        <h1>Mi Experiencia</h1>
+        <div class="experience-card">
+            <h3>IT SOLUTIONS ANALYST | BANCO CENTRAL DEL PARAGUAY</h3>
+            <p>Implementación de solución tecnológica ITSM, administración de la herramienta implementada, soporte activo para agentes y usuarios.</p>
+            <p class="dates">Diciembre 2022 - Agosto 2024</p>
+
+            <h3>FRONT-END DEVELOPER | OTRI- UNIDA</h3>
+            <p>Desarrollo Front-End usando Typescript, JavaScript, HTML, CSS, React, vue, nodejs, tailwind, git, figma, etc.</p>
+            <p class="dates">Enero 2022 - Diciembre 2024</p>
+
+            <h3>FREELANCER</h3>
+            <p>Montaje de PC gamer, mantenimiento de hardware y software, asesoramiento técnico</p>
+            <p class="dates">Febrero 2020 - Enero 2021</p>
+
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const menuBtn = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            if (menuBtn && sidebar) {
+                menuBtn.addEventListener('click', function() {
+                    sidebar.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
