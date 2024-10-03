@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            margin: 0;
+            background-color: #faf4ff;
+            font-family: 'Roboto', sans-serif;
+            cursor: url('cursor.cur'), auto;
+        }
+        .content {
+            flex: 1;
+            padding: 40px;
+            margin-left: 250px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        a:hover {
+            cursor: url('cursor-mano.cur'), auto;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #c97b84;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h1::before, h1::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: #c97b84;
+            top: 50%;
+        }
+        h1::before {
+            left: -100px;
+        }
+        h1::after {
+            right: -100px;
+        }
+        .education-card {
+            background-color: #fff;
+            border-left: 5px solid #f4c2c2;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .education-card h3 {
+            font-size: 1.5rem;
+            color: #c97b84;
+        }
+        .education-card p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        .education-card .dates {
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        .navbar{
+            display: none;
+            width: 100%;
+            height: 50px;
+            background-color: #f4c2c2;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+        .menu-btn {
+            display: none;
+            background-color: #f4c2c2;
+            border: none;
+            color: white;
+            font-size: 24px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1001;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                display: block;
+            }
+            .menu-btn {
+                display: block;
+            }
+            .sidebar {
+                width: 200px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                z-index: 1000;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .sidebar img{
+                margin-top: 50px;
+            }
+            .content {
+                margin-left: 0;
+                margin-top: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar"></div>
+    <button class="menu-btn" id="menuToggle">&#9776;</button>
+
+    <div class="sidebar" id="sidebar">
+        <img src="ale.jpg" alt="Imagen Local">
+        <a href="index.html">Alejandra</a>
+        <a href="about-me.html">Sobre mí</a>
+        <a href="portfolio.html">Portafolio</a>
+        <a href="education.html">Educación</a>
+        <a href="experience.html">Experiencia</a>
+        <a href="skills.html">Habilidades</a>
+        <a href="contact.html">Contacto</a>
+    </div>
+
+    <div class="content">
+        <h1>Mi Educación</h1>
+        <div class="education-card">
+            <h3>UNIVERSITARIO</h3>
+            <p>Universidad de la integración de las américas | Ing. Informática</p>
+            <p class="dates">(Actualidad)</p>
+        
+
+        
+            <h3>NIVEL MEDIO</h3>
+            <p>Centro Educativo La Esperanza | Bachiller Técnico en informática</p>
+            <p class="dates">2016 - 2018</p>
+        
+
+        
+            <h3>EDUCACIÓN ESCOLAR BASICA E INICIAL</h3>
+            <p>Centro Educativo Pablo Ezequiel| Premio a la perseverancia</p>
+            <p class="dates">2005 - 2015</p>
+        </div>
+
+        
+        <h1>Mis Cursos</h1>
+        <div class="education-card">
+            <h3>INFOYMAS</h3>
+            <p>Ingles Técnico</p>
+            <p class="dates">2016 – 2020</p>
+
+            <h3>UNIVERSIDAD DEL CONO SUR DE LAS AMERICAS (UCSA) </h3>
+            <p>Desarrollo web FullStack</p>
+            <p class="dates">Marzo 2024 - Julio 2024</p>
+
+            <h3>UNIVERSIDAD DEL CONO SUR DE LAS AMERICAS (UCSA) </h3>
+            <p>Desarrollo web FullStack Avanzado</p>
+            <p class="dates">Agosto 2024 - Diciembre 2024</p>
+
+            <h3>PLATZI</h3>
+            <p>Desarrollo de software (Ruta completa)</p>
+            <p class="dates"> Mayo 2022 - Septiembre 2022</p>
+
+            <h3>MITIC</h3>
+            <p>Introducción a redes de computadoras</p>
+            <p class="dates">2019</p>
+
+        </div>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const menuBtn = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            if (menuBtn && sidebar) {
+                menuBtn.addEventListener('click', function() {
+                    sidebar.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
